@@ -1,6 +1,6 @@
 ---
 weight: 2
-title: "Releases"
+title: "Testing and Infrastructure"
 ---
 
 # Releases
