@@ -17,20 +17,20 @@ for row in $(yq -r '.[] | @base64' release.yaml); do
     name=$(_yq '.name')
 
     echo "name:${name} old:${oldBranch} new:${newBranch}"
-    pushd ${TEMP_DIR}/tools/cmd/gen-release-notes
+    cd ${TEMP_DIR}/tools/cmd/gen-release-notes
     pwd
     gh pr checkout 1184
     git fetch
 
-    pushd ${TEMP_DIR}/istio
+    cd ${TEMP_DIR}/istio
     git checkout ${newBranch}
-    popd
+    cd ${TEMP_DIR}/tools/cmd/gen-release-notes
     go build
     ./gen-release-notes --notes ${TEMP_DIR}/istio/releasenotes/notes --oldBranch ${oldBranch} --newBranch ${newBranch}
 
     notesDir=${CONTENT_DIR}/docs/releases/${name}
     mkdir -p ${notesDir} | true
     cp *.md ${notesDir}
-    popd
+    cd ${REPO_ROOT}
 
 done

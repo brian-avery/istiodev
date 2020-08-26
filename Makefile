@@ -7,3 +7,5 @@ gen-release-notes:
 .PHONY: gen-content gen-release-notes
 serve: gen-content gen-release-notes
 	hugo serve
+clean:
+	rm -rf _tmp
