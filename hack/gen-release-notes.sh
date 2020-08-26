@@ -39,7 +39,7 @@ for row in $(yq -r '.[] | @base64' release.yaml); do
     mkdir -p ${notesDir} | true
 
     #BAVERY_TODO: Remove
-    #find . -type f -name \*.md | xargs -n 1 sed -i 's/{{<.*>}}//'
+    find . -type f -name \*.md | xargs -n 1 sed -i 's/{{<.*>}}//'
 
     if [ $type = "release" ]; then
         cp minorReleaseNotes.md ${notesDir}
