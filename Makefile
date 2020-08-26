@@ -9,6 +9,6 @@ serve: clean gen-content gen-release-notes
 	hugo serve
 .PHONY: build
 build: clean gen-content gen-release-notes
-	HUGO_ENV="production" hugo --gc || exit 1
+	hugo
 clean:
 	rm -rf _tmp

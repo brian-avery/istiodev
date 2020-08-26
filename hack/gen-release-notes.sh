@@ -13,7 +13,7 @@ git clone "https://github.com/istio/tools.git" ${TEMP_DIR}/tools | true
 #cp -r ${TEMP_DIR}/istio.io/layouts/shortcodes $REPO_ROOT/layouts
 #cp -r ${TEMP_DIR}/istio.io/layouts/partials $REPO_ROOT/layouts
 
-for row in $(yq -r '.[] | @base64' release.yaml); do
+for row in $(yq r release.yaml '.[] | @base64'); do
     _yq() {
      echo ${row} | base64 --decode | yq -r ${1}
     }
@@ -28,6 +28,7 @@ for row in $(yq -r '.[] | @base64' release.yaml); do
     pwd
 
     cd ${TEMP_DIR}/istio
+    git fetch
     git checkout ${newBranch}
     cd ${TEMP_DIR}/tools/cmd/gen-release-notes
     go build
