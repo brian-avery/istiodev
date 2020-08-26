@@ -10,7 +10,7 @@ aliases:
 ---
 This release contains bug fixes to improve robustness. This release note describes what’s different between Istio 1.6.2 and Istio 1.6.3.
 
-
+{{< relnote >}}
 
 # Changes
 
