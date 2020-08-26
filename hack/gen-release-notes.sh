@@ -15,8 +15,9 @@ for row in $(yq -r '.[] | @base64' release.yaml); do
     oldBranch=$(_yq '.oldBranch')
     newBranch=$(_yq '.newBranch')
     name=$(_yq '.name')
+    type=$(_yq '.type')
 
-    echo "name:${name} old:${oldBranch} new:${newBranch}"
+    echo "name:${name} old:${oldBranch} new:${newBranch} type:${type}"
     cd ${TEMP_DIR}/tools/cmd/gen-release-notes
     pwd
     gh pr checkout 1184
@@ -30,7 +31,16 @@ for row in $(yq -r '.[] | @base64' release.yaml); do
 
     notesDir=${CONTENT_DIR}/docs/releases/${name}
     mkdir -p ${notesDir} | true
-    cp *.md ${notesDir}
+
+    #BAVERY_TODO: Remove
+    find . -type f -name \*.md | xargs -n 1 sed -i 's/{{<.*>}}//'
+
+    if [ $type = "release" ]; then
+        cp minorReleaseNotes.md ${notesDir}
+    elif [ $type = "minor-release" ]; then
+        cp releaseNotes.md ${notesDir}
+        cp upgradeNotes.md ${notesDir}
+    fi
     cd ${REPO_ROOT}
 
 done

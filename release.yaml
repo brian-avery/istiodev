@@ -1,6 +1,8 @@
 - name: 1.7
   oldBranch: 1.7.0
   newBranch: release-1.7
+  type: release
 - name: 1.8
   oldBranch: release-1.7
   newBranch: master
+  type: minor-release

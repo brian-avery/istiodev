@@ -1,9 +1,8 @@
 ---
 title: Change Notes
-description: Istio 1.6 release notes.
+description: Istio 1.7 release notes.
 weight: 10
 ---
-
 # Release Notes
 
 ## Traffic Management
