@@ -12,7 +12,7 @@ weight: 10
 
 
 
-"**Fixed** Remove unreachable endpoints for non-injected workloads across networks.\n" ([Issue #26517](https://github.com/istio/istio/issues/26517))
+- **Fixed** Remove unreachable endpoints for non-injected workloads across networks.\n ([Issue #26517](https://github.com/istio/istio/issues/26517))
 
 
 
