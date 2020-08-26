@@ -1,2 +1,6 @@
-/_tmp
-/public
+_tmp/
+public/
+resources/
+node_modules/
+tech-doc-hugo
+

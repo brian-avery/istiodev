@@ -3,7 +3,7 @@ set -x
 set -e
 readonly REPO_ROOT="$(git rev-parse --show-toplevel)"
 readonly TEMP_DIR="$REPO_ROOT/_tmp"
-readonly CONTENT_DIR="$REPO_ROOT/content"
+readonly CONTENT_DIR="$REPO_ROOT/content/en"
 
 git clone "https://github.com/istio/istio.git" ${TEMP_DIR}/istio | true
 git clone "https://github.com/istio/tools.git" ${TEMP_DIR}/tools | true
