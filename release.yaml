@@ -1,0 +1,6 @@
+- name: 1.7
+  oldBranch: 1.7.0
+  newBranch: release-1.7
+- name: 1.8
+  oldBranch: release-1.7
+  newBranch: master

@@ -1,3 +1,7 @@
+---
+title: Prow
+---
+
 # Prow
 
 See [upstream prow](https://github.com/kubernetes/test-infra/tree/master/prow) documentation for more detailed and generic information about what prow is and how it works.
@@ -48,7 +52,7 @@ kubectl logs -l app=deck # or the appropriate label like app=hook
 
 The most common pattern is to trigger a job on some sort of Github event, esp. on PRs and on PR merges. Prow has concepts for these two specific stages. The first, running jobs on a PR, is called a presubmit job. The second, running jobs after the PR is merged, is called a postsubmit.
 
-Both of these types of jobs can be configured using the config configmap [here](./config.yaml). In the configmap, you are configuring on which repo to run a particular job, basic metadata like the name, and then the build image. For these to be triggered, you must add `trigger` to the list of plugins in the plugins configmap [here](./plugins.yaml). For example, to add a simple presubmit to `my-repo`, requires the following edits:
+Both of these types of jobs can be configured using the config configmap [here](/prow/config.yaml). In the configmap, you are configuring on which repo to run a particular job, basic metadata like the name, and then the build image. For these to be triggered, you must add `trigger` to the list of plugins in the plugins configmap [here](/prow/plugins.yaml). For example, to add a simple presubmit to `my-repo`, requires the following edits:
 
 ```yaml
 # in config.yaml
@@ -94,7 +98,7 @@ Then you can access to the artifact through "artifacts" at [gubernator](https://
 
 ### Prow Bazel Build Image
 
-The prowbazel build image [here](../docker/prowbazel) is preferred. Its entrypoint is a test harness that checks out the code at the appropriate ref, captures the logs and exit code, and writes these logs to a GCS bucket in a location and manner the k8s-test-infra UI, gubernator, can read.
+The prowbazel build image [here](/docker/prowbazel) is preferred. Its entrypoint is a test harness that checks out the code at the appropriate ref, captures the logs and exit code, and writes these logs to a GCS bucket in a location and manner the k8s-test-infra UI, gubernator, can read.
 
 In the repository of interest, add a `/prow/` directory. The test harness will look for `/prow/<job-name>.sh` and execute this script.
 

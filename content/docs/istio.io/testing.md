@@ -1,3 +1,7 @@
+---
+title: Tests
+---
+
 # Testing istio.io Content
 
 This folder contains framework utilies and instructions for testing the content on
@@ -30,16 +34,16 @@ To write an `istio.io` test, follow these steps:
 1. Run `make snips` to generate the bash script. After the command completes, you should see
    a new file, `snips.sh`, next to the `index.md` file that you modified in the previous step.
 
-   Each bash command in `index.md` (i.e.,  code block) will produce a bash
+   Each bash command in `index.md` (i.e., `{{< text bash >}}` code block) will produce a bash
    function in `snips.sh` containing the same command(s) as in the document. Other types of code blocks,
-   e.g., , will produce a bash variable containing the block content.
+   e.g., `{{< text yaml >}}`, will produce a bash variable containing the block content.
 
    By default, the bash function or variable will be named `snip_<section>_<code block number>`.
-   For example, the first  code block in a section titled
+   For example, the first `{{< text bash >}}` code block in a section titled
    `## Apply weight-based routing` will generate a bash function named `snip_apply_weightbased_routing_1()`.
 
    You can override the default name by adding `snip_id=<some name>` to the corresponding text block attributes.
-   For example  will generate `snip_config_all_v1()`.
+   For example `{{< text syntax=bash snip_id=config_all_v1 >}}` will generate `snip_config_all_v1()`.
 
    > You can also entirely supress generation of a snip function by setting `snip_id=none`. This is useful for
    > commands that are not intended to be directly executable (e.g., `kubectl get pod <your pod name>` and are
@@ -158,14 +162,14 @@ The framework automatically includes several bash scripts into your `test.sh` fi
 don't have to `source` them yourself. This includes your generated `snips.sh` file as well
 as some scripts containing framework utility functions:
 
-* [tests/util/verify.sh](./util/verify.sh)
-* [tests/util/helpers.sh](./util/helpers.sh)
+* [tests/util/verify.sh](/tests/util/verify.sh)
+* [tests/util/helpers.sh](/tests/util/helpers.sh)
 
 You can directly call any function defined in them.
 
 Other optional include files need to be explicitly sourced.
 For example, tests that use the standard Istio sample services, will typically want to leverage
-some of the functions in [tests/util/samples.sh](./util/samples.sh):
+some of the functions in [tests/util/samples.sh](/tests/util/samples.sh):
 
 ```sh
 source "tests/util/samples.sh"
@@ -273,7 +277,7 @@ You can also find this information by running `make doc.test.help`.
 
 ### Notes
 
-1. The [tests/util/debug.sh](./util/debug.sh) script is automatically included in every `test.sh` script
+1. The [tests/util/debug.sh](/tests/util/debug.sh) script is automatically included in every `test.sh` script
    to enable bash tracing. The bash tracing output can be found in `out/<test_path>_[test|cleanup]_debug.txt`.
 
 1. When using `kind` clusters on a Mac, an extra env var is needed (ADDITIONAL_CONTAINER_OPTIONS="--network host").

@@ -1,3 +1,7 @@
+---
+title: Releasenotes
+---
+
 # Istio Release Notes
 
 This directory contains the release notes, upgrade notes, and security notes for Istio.
@@ -7,8 +11,8 @@ which will be reviewed by the release managers and documentation team.
 
 ## Adding a Release Note
 
-To create a release note, create a new file in the [./notes](./notes) directory based on
-the [template](./template.yaml). The filename doesn't matter as long as it ends with a `.yaml`
+To create a release note, create a new file in the [./notes](/releasenotes/notes) directory based on
+the [template](/releasenotes/template.yaml). The filename doesn't matter as long as it ends with a `.yaml`
 extension and matches the format specified in the template. However, please make names descriptive.
 
 ```yaml
