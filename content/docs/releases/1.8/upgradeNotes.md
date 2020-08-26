@@ -28,19 +28,19 @@ For users with `values.global.meshExpansion.enabled=true`, perform the following
 
 1. Apply the code sample for exposing Istiod through ingress.
 
-   {{< text bash >}}
+   
    $ kubectl apply -f @samples/istiod-gateway/istiod-gateway.yaml@
-   {{< /text >}}
+   
 
    This removes `operator.istio.io/managed` labels from the associated Istio networking resources so that the Istio installer won't delete them. After this step, you can modify these resources freely.
 
 1. If `components.ingressGateways[name=istio-ingressgateway].k8s.service.ports` is overridden, add port 15012 to the list of ports:
 
-   {{< text yaml >}}
+   
         - port: 15012
           targetPort: 15012
           name: tcp-istiod
-   {{< /text >}}
+   
 
 1. If `values.gateways.istio-ingressgateway.meshExpansionPorts` is set, move all ports to `components.ingressGateways[name=istio-ingressgateway].k8s.service.ports` if they're not already present. Then, unset this value.
 
