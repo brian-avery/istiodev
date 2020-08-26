@@ -34,16 +34,16 @@ To write an `istio.io` test, follow these steps:
 1. Run `make snips` to generate the bash script. After the command completes, you should see
    a new file, `snips.sh`, next to the `index.md` file that you modified in the previous step.
 
-   Each bash command in `index.md` (i.e., `` code block) will produce a bash
+   Each bash command in `index.md` (i.e., `{{< text bash >}}` code block) will produce a bash
    function in `snips.sh` containing the same command(s) as in the document. Other types of code blocks,
-   e.g., ``, will produce a bash variable containing the block content.
+   e.g., `{{< text yaml >}}`, will produce a bash variable containing the block content.
 
    By default, the bash function or variable will be named `snip_<section>_<code block number>`.
-   For example, the first `` code block in a section titled
+   For example, the first `{{< text bash >}}` code block in a section titled
    `## Apply weight-based routing` will generate a bash function named `snip_apply_weightbased_routing_1()`.
 
    You can override the default name by adding `snip_id=<some name>` to the corresponding text block attributes.
-   For example `` will generate `snip_config_all_v1()`.
+   For example `{{< text syntax=bash snip_id=config_all_v1 >}}` will generate `snip_config_all_v1()`.
 
    > You can also entirely supress generation of a snip function by setting `snip_id=none`. This is useful for
    > commands that are not intended to be directly executable (e.g., `kubectl get pod <your pod name>` and are

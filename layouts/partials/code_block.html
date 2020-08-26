@@ -58,10 +58,6 @@
         {{- $text = partial "strip_indent.html" (dict "content" .Inner "pos" .Position) -}}
     {{- end -}}
 
-    {{- if (hasPrefix $text " ") -}}
-        {{- errorf "Text blocks need to not be indented, or indented by a multiple of 4 spaces (%s)" .Position -}}
-    {{- end -}}
-
     {{- if $snippet -}}
         {{- $pattern := printf "(?msU).*\\$snippet %s +syntax=\"(.+)\" +outputis=\"(.+)\" *$\\n(.*)(?-s)\\n^.*\\$endsnippet *$(?s-U).*" $snippet -}}
         {{- $match := findRE $pattern $text -}}
@@ -98,15 +94,6 @@
         {{- end -}}
     {{- end -}}
 
-    {{- if eq $syntax "bash" -}}
-        {{- if not (hasPrefix $text "$") -}}
-            {{- errorf "Text block specifies a bash syntax, but the first line of the block does not start with $ (%s)" .Position -}}
-        {{- end -}}
-    {{- else -}}
-        {{- if $output_is -}}
-            {{- errorf "Only text blocks with a bash syntax can use outputis (%s)" .Position -}}
-        {{- end -}}
-    {{- end -}}
 {{- end -}}
 
 {{- $attrs := printf "data-expandlinks='%s' " $expand_links -}}
