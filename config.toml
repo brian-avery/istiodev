@@ -5,7 +5,7 @@ title = 'Istio Contributors'
 theme = 'hugo-book'
 
 # Book configuration
-disablePathToLower = true
+disablePathToLower = false
 enableGitInfo = true
 
 # Needed for mermaid/katex shortcodes
@@ -40,7 +40,7 @@ enableGitInfo = true
 
   # (Optional, default none) Set leaf bundle to render as side menu
   # When not specified file structure and weights will be used
-  # BookMenuBundle = '/menu'
+  BookMenuBundle = '/menu'
 
   # (Optional, default docs) Specify root page to render child pages as menu.
   # Page is resoled by .GetPage function: https://gohugo.io/functions/getpage/
@@ -54,7 +54,7 @@ enableGitInfo = true
   # Enable "Edit this page" links for 'doc' page type.
   # Disabled by default. Uncomment to enable. Requires 'BookRepo' param.
   # Edit path must point to root directory of repo.
-  BookEditPath = 'edit/master/exampleSite'
+  #BookEditPath = 'edit/master/exampleSite'
 
   # Configure the date format used on the pages
   # - In git information

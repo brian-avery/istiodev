@@ -7,6 +7,12 @@ readonly CONTENT_DIR="$REPO_ROOT/content"
 
 git clone "https://github.com/istio/istio.git" ${TEMP_DIR}/istio | true
 git clone "https://github.com/istio/tools.git" ${TEMP_DIR}/tools | true
+
+#maybe it shouldn't be done here, but synchronize the shortcodes so that they are defined
+git clone "https://github.com/istio/istio.io.git" ${TEMP_DIR}/istio.io | true
+cp -r ${TEMP_DIR}/istio.io/layouts/shortcodes $REPO_ROOT/layouts
+cp -r ${TEMP_DIR}/istio.io/layouts/partials $REPO_ROOT/layouts
+
 for row in $(yq -r '.[] | @base64' release.yaml); do
     _yq() {
      echo ${row} | base64 --decode | yq -r ${1}
@@ -33,7 +39,7 @@ for row in $(yq -r '.[] | @base64' release.yaml); do
     mkdir -p ${notesDir} | true
 
     #BAVERY_TODO: Remove
-    find . -type f -name \*.md | xargs -n 1 sed -i 's/{{<.*>}}//'
+    #find . -type f -name \*.md | xargs -n 1 sed -i 's/{{<.*>}}//'
 
     if [ $type = "release" ]; then
         cp minorReleaseNotes.md ${notesDir}
