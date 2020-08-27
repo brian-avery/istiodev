@@ -1,0 +1,1 @@
+"/istio.wiki/Istio-Release-Management.md","/docs/releases/release-management.md"
