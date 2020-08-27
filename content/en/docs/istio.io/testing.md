@@ -162,14 +162,14 @@ The framework automatically includes several bash scripts into your `test.sh` fi
 don't have to `source` them yourself. This includes your generated `snips.sh` file as well
 as some scripts containing framework utility functions:
 
-* [tests/util/verify.sh](/tests/util/verify.sh)
-* [tests/util/helpers.sh](/tests/util/helpers.sh)
+* [tests/util/verify.sh](https://github.com/istio/istio.io/blob/master/tests/util/verify.sh)
+* [tests/util/helpers.sh](https://github.com/istio/istio.io/blob/master/tests/util/helpers.sh)
 
 You can directly call any function defined in them.
 
 Other optional include files need to be explicitly sourced.
 For example, tests that use the standard Istio sample services, will typically want to leverage
-some of the functions in [tests/util/samples.sh](/tests/util/samples.sh):
+some of the functions in [tests/util/samples.sh](https://github.com/istio/istio.io/blob/master/tests/util/samples.sh):
 
 ```sh
 source "tests/util/samples.sh"
@@ -277,7 +277,7 @@ You can also find this information by running `make doc.test.help`.
 
 ### Notes
 
-1. The [tests/util/debug.sh](/tests/util/debug.sh) script is automatically included in every `test.sh` script
+1. The [tests/util/debug.sh](https://github.com/istio/istio.io/blob/master/tests/util/debug.sh) script is automatically included in every `test.sh` script
    to enable bash tracing. The bash tracing output can be found in `out/<test_path>_[test|cleanup]_debug.txt`.
 
 1. When using `kind` clusters on a Mac, an extra env var is needed (ADDITIONAL_CONTAINER_OPTIONS="--network host").

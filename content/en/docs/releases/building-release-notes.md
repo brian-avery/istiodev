@@ -32,7 +32,7 @@ go build
 
 Release notes templates are standard markdown files containing HTML comments
 indicating where content should be substituted. These are stored in the
-[templates](/cmd/gen-release-notes/templates) directory.
+[templates](https://github.com/istio/tools/blob/master/cmd/gen-release-notes/templates) directory.
 
 * Release notes can be substituted using:
 

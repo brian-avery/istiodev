@@ -11,8 +11,8 @@ which will be reviewed by the release managers and documentation team.
 
 ## Adding a Release Note
 
-To create a release note, create a new file in the [./notes](/releasenotes/notes) directory based on
-the [template](/releasenotes/template.yaml). The filename doesn't matter as long as it ends with a `.yaml`
+To create a release note, create a new file in the [./notes](https://github.com/istio/istio/blob/master/releasenotes/notes) directory based on
+the [template](https://github.com/istio/istio/blob/master/releasenotes/template.yaml). The filename doesn't matter as long as it ends with a `.yaml`
 extension and matches the format specified in the template. However, please make names descriptive.
 
 ```yaml

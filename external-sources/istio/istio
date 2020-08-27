@@ -1,1 +1,5 @@
 "/releasenotes/README.md","/docs/releases/writing-release-note-entries.md"
+"/pilot/pkg/xds/README.md","/docs/source/pilot/xds/_index.md"
+"/cni/README.md","/docs/source/cni/_index.md"
+"/galley/README.md","/docs/source/galley/_index.md"
+"/operator/README.md","/docs/source/operator/_index.md"
