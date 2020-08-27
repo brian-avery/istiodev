@@ -13,6 +13,7 @@ git clone "https://github.com/istio/tools.git" ${TEMP_DIR}/tools | true
 #cp -r ${TEMP_DIR}/istio.io/layouts/shortcodes $REPO_ROOT/layouts
 #cp -r ${TEMP_DIR}/istio.io/layouts/partials $REPO_ROOT/layouts
 
+    pwd
 for row in $(yq r release.yaml '.[] | @base64'); do
     _yq() {
      echo ${row} | base64 --decode | yq -r ${1}
@@ -35,12 +36,14 @@ for row in $(yq r release.yaml '.[] | @base64'); do
     ./gen-release-notes --notes ${TEMP_DIR}/istio/releasenotes/notes --oldBranch ${oldBranch} --newBranch ${newBranch}
 
     notesDir=${CONTENT_DIR}/docs/releases/${name}
-    mkdir -p ${notesDir} | true
-
+    rm -r ${notesDir}
+    mkdir -p ${notesDir}
+    cp ${REPO_ROOT}/hack/_index.md ${notesDir}
+    sed -i 's/title:.*/title:${name}/' ${notesDir}/_index.md
     if [ $type = "release" ]; then
-        cp minorReleaseNotes.md ${notesDir}
-    elif [ $type = "minor-release" ]; then
         cp releaseNotes.md ${notesDir}
+    elif [ $type = "minor-release" ]; then
+        cp minorReleaseNotes.md ${notesDir}
         cp upgradeNotes.md ${notesDir}
     fi
     cd ${REPO_ROOT}
