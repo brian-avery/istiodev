@@ -9,10 +9,13 @@ aliases:
     - /news/announcing-x.y.z
 ---
 
+{{< warning >}}
 This is an automatically generated rough draft of the release notes and has not yet been reviewed.
+{{< /warning >}}
 
 This release contains bug fixes to improve robustness. This release note describes what’s different between Istio x.y.(z-1) and Istio x.y.z
 
+{{< relnote >}}
 
 # Changes
 
