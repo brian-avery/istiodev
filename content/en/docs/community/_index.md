@@ -1,5 +1,5 @@
 ---
-title: Community
+title: CONTRIBUTING
 ---
 
 # Contributing to Istio
