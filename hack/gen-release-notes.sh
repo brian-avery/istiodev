@@ -14,7 +14,7 @@ git clone "https://github.com/istio/tools.git" ${TEMP_DIR}/tools | true
 #cp -r ${TEMP_DIR}/istio.io/layouts/partials $REPO_ROOT/layouts
 
     pwd
-for row in $(yq r release.yaml '.[] | @base64'); do
+for row in $(yq -r '.[] | @base64' release.yaml); do
     _yq() {
      echo ${row} | base64 --decode | yq -r ${1}
     }
@@ -36,7 +36,7 @@ for row in $(yq r release.yaml '.[] | @base64'); do
     ./gen-release-notes --notes ${TEMP_DIR}/istio/releasenotes/notes --oldBranch ${oldBranch} --newBranch ${newBranch}
 
     notesDir=${CONTENT_DIR}/docs/releases/${name}
-    rm -r ${notesDir}
+    rm -r ${notesDir} | true
     mkdir -p ${notesDir}
     cp ${REPO_ROOT}/hack/_index.md ${notesDir}
     sed -i 's/title:.*/title:${name}/' ${notesDir}/_index.md
