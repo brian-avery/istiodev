@@ -1,4 +1,4 @@
 ---
 weight: 2
-title:${name}
+title: 1.8
 ---
