@@ -13,20 +13,26 @@ single release notes file.
 
 ## Generating Release Notes
 
-To generate release notes, run:
+If both Istio and tools are cloned in the same directory and you want to generate release notes for changes in the `release-1.7` branch since the `1.7.0` tag was created, you could run the following from the `tools/cmd/gen-release-notes` directory:
 
 ```bash
+pushd ../../../istio/releasenotes/notes
+git checkout release-1.7
+popd
+
 go build
-./gen-release-notes --notes <notes-dir> --templates <templates-dir> --oldBranch myOldBranch --newBranch myNewBranch
+./gen-release-notes --notes ../../../istio/releasenotes/notes --oldBranch 1.7.0 --newBranch release-1.7
 ```
 
 ### Arguments
 
-* (optional) `--notes`  --  indicates where release notes should be found. Default: `./templates`
-* (optional) `--templates` -- indicates where templates should be found. Default: `./notes`
+* (optional) `--notes`  --  indicates where release notes should be found. Default: `./notes`. This argument can be repeated for additional repositories.
+* (optional) `--templates` -- indicates where templates should be found. Default: `./templates`
 * (optional) `--validateOnly` -- indicates to perform validation but not release notes generation.
 * `--oldBranch` -- indicates the branch (or tag) to compare against
-* `--(newBranch)` -- indicates the branch (or tag) containing new release notes
+* `--newBranch` -- indicates the branch (or tag) containing new release notes
+* `--oldRelease` -- indicates the name of the release being upgrade from
+* `--newRelease` -- indicates the name of the new release.
 
 ## Templates
 
@@ -54,11 +60,32 @@ indicating where content should be substituted. These are stored in the
 
 ### Filtering notes
 
-Notes can be substituted based on fields in the release notes files.
+Templates can be populated with release notes based on HTML comments that filter
+content from the release notes files.
 
-To substitute for release notes matching the `traffic-management` area, use the
+To populate a template with release notes matching the `traffic-management` area, use the
 following comment:
 
 ```html
 <!-- releaseNotes area:traffic-management -->
 ```
+
+To populate a templates with release notes matching kind `feature`, use:
+
+```html
+<!-- releaseNotes kind:feature -->
+```
+
+To populate a template with release notes matching the action `Deprecated`, use:
+
+```html
+<!-- releaseNotes action:Deprecated -->
+```
+
+Filters also support negation of fields. To include all release notes not
+matching the action `Deprecated`, use:
+
+```html
+<!-- releaseNotes action:!Deprecated -->
+```
+

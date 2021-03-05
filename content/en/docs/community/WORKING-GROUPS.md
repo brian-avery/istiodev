@@ -65,7 +65,6 @@ Each working group has one or more leads which coordinate the activities of the 
 -------------------------------------------------------------------------------------|----------------------------------------------------|------------|-------
 <img width="30px" src="https://avatars3.githubusercontent.com/u/8484260?s=400&v=4">  | [Brian Avery](https://github.com/brian-avery)      | Red Hat    | Test and Release, Product Security
 &nbsp;                                                                               | [Costin Manolache](https://github.com/costinm)     | Google     | Networking - Control Plane
-<img width="30px" src="https://avatars0.githubusercontent.com/u/2752495?s=400&v=4">  | [Frank Budinsky](https://github.com/frankbu)       | IBM        | Docs
 <img width="30px" src="https://avatars0.githubusercontent.com/u/755849?s=400&v=4">   | [Steven Dake](https://github.com/sdake)            | IBM        | Environments
 <img width="30px" src="https://avatars1.githubusercontent.com/u/623453?s=400&v=4">   | [John Howard](https://github.com/howardjohn)       | Google     | Environments
 &nbsp;                                                                               | [Mandar Jog](https://github.com/mandarjog)         | Google     | Policies and Telemetry
@@ -78,7 +77,7 @@ Each working group has one or more leads which coordinate the activities of the 
 <img width="30px" src="https://avatars3.githubusercontent.com/u/821270?s=80&v=4">  | [Mitch Connors](https://github.com/therealmitchconnors) | Google  | User Experience
 <img width="30px" src="https://avatars1.githubusercontent.com/u/10537847?s=400&v=4"> | [Eric Van Norman](https://github.com/ericvn)       | IBM        | Test and Release
 &nbsp;                                                                               | [Limin Wang](https://github.com/liminw)            | Google     | Security
-<img width="30px" src="https://avatars3.githubusercontent.com/u/12534779?s=400&v=4"> | [Neeraj Poddar](https://github.com/nrjpoddar)      | Aspen Mesh | Product Security
+<img width="30px" src="https://avatars3.githubusercontent.com/u/38300436?s=400&v=4"> | [Jacob Delgado](https://github.com/jacob-delgado)  | Aspen Mesh | Product Security
 <img width="30px" src="https://avatars0.githubusercontent.com/u/1016047?s=400&v=4">  | [Lizan Zhou](https://github.com/lizan)             | Tetrate    | Networking - Data Plane, Security
 &nbsp;                                                                               | [Rama Chavali](https://github.com/ramaraochavali)  | Salesforce | Networking - Control Plane
 
